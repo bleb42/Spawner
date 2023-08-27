@@ -5,8 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyPrefab;
-    [SerializeField] private float _spawnInterval = 2f;
     [SerializeField] private GameObject _targetPosition;
+    [SerializeField] private float _spawnInterval = 2f;
     [SerializeField] private int _enemiesCount;
     
     private Transform[] _spawnPoints;
@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
            
             if (enemyMovement != null)
             {
-                enemyMovement.SetMovementDirection(movementDirection);
+                enemyMovement.SetTargetPosition(movementDirection);
             }
 
             yield return spawnInterval;

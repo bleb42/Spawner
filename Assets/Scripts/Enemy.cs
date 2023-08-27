@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _targetPosition, _speed * Time.deltaTime);
     }
 
-    public void SetMovementDirection(Vector3  targetPosition)
+    public void SetTargetPosition(Vector3  targetPosition)
     {
         _targetPosition = targetPosition;
     }
