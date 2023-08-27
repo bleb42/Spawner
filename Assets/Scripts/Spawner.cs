@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemyPrefab;
-    [SerializeField] private GameObject _targetPosition;
     [SerializeField] private float _spawnInterval = 2f;
     [SerializeField] private int _enemiesCount;
     
-    private Transform[] _spawnPoints;
+    private SpawnPoint[] _spawnPoints;
 
     private void Awake()
     {
-        _spawnPoints = GetComponentsInChildren<Transform>();
+        _spawnPoints = GetComponentsInChildren<SpawnPoint>();
     }
 
     private void Start()
@@ -27,15 +25,12 @@ public class Spawner : MonoBehaviour
 
         for (int i = 0; i < _enemiesCount; i++)
         {
-            Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
-            Transform newEnemy = Instantiate(_enemyPrefab.transform, randomSpawnPoint.position, Quaternion.identity);
+            SpawnPoint randomSpawnpPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
+            SpawnPoint spawnPoint = randomSpawnpPoint.GetComponent<SpawnPoint>();
 
-            Vector3 movementDirection = _targetPosition.transform.position;
-            Enemy enemyMovement = newEnemy.GetComponent<Enemy>();
-           
-            if (enemyMovement != null)
+            if (spawnPoint != null)
             {
-                enemyMovement.SetTargetPosition(movementDirection);
+                spawnPoint.SpawnEnemy();
             }
 
             yield return spawnInterval;

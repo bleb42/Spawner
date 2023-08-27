@@ -9,9 +9,14 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _targetPosition, _speed * Time.deltaTime);
+
+        if (gameObject.transform.position == _targetPosition)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public void SetTargetPosition(Vector3  targetPosition)
+    public void SetTargetPosition(Vector3 targetPosition)
     {
         _targetPosition = targetPosition;
     }
