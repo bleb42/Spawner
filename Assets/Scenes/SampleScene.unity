@@ -808,5 +808,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11eb57cad2ff9b94bbee32a75562fadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnInterval: 2
-  _enemiesCount: 10
+  _spawnInterval: 0.5
+  _enemiesCount: 100

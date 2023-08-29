@@ -25,12 +25,11 @@ public class Spawner : MonoBehaviour
 
         for (int i = 0; i < _enemiesCount; i++)
         {
-            SpawnPoint randomSpawnpPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
-            SpawnPoint spawnPoint = randomSpawnpPoint.GetComponent<SpawnPoint>();
+            SpawnPoint randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
 
-            if (spawnPoint != null)
+            if (randomSpawnPoint != null)
             {
-                spawnPoint.SpawnEnemy();
+                randomSpawnPoint.SpawnEnemy();
             }
 
             yield return spawnInterval;

@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, _targetPosition, _speed * Time.deltaTime);
+        gameObject.transform.position = 
+            Vector3.MoveTowards(gameObject.transform.position, _targetPosition, _speed * Time.deltaTime);
 
         if (gameObject.transform.position == _targetPosition)
         {
