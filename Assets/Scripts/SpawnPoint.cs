@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    [SerializeField] private Transform _targetPosition;
-    [SerializeField] private Enemy _enemy;
+    [SerializeField] private Transform _target;
+    [SerializeField] private Enemy _enemyPrefab;
 
     public void SpawnEnemy()
     {
-        Enemy enemy = Instantiate(_enemy, gameObject.transform.position, Quaternion.identity);
+        Enemy enemy = Instantiate(_enemyPrefab, gameObject.transform.position, Quaternion.identity);
 
-        enemy.SetTargetPosition(_targetPosition.transform.position);
+        enemy.SetATarget(_target);
     }
 }

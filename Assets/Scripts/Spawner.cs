@@ -27,10 +27,9 @@ public class Spawner : MonoBehaviour
         {
             SpawnPoint randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
 
-            if (randomSpawnPoint != null)
-            {
-                randomSpawnPoint.SpawnEnemy();
-            }
+            
+            randomSpawnPoint.SpawnEnemy();
+            
 
             yield return spawnInterval;
         }

@@ -4,21 +4,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    private Vector3 _targetPosition;
+
+    private Transform _target;
 
     private void Update()
     {
-        gameObject.transform.position = 
-            Vector3.MoveTowards(gameObject.transform.position, _targetPosition, _speed * Time.deltaTime);
-
-        if (gameObject.transform.position == _targetPosition)
-        {
-            Destroy(gameObject);
-        }
+        transform.position = 
+            Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
     }
 
-    public void SetTargetPosition(Vector3 targetPosition)
+    public void SetATarget(Transform target)
     {
-        _targetPosition = targetPosition;
+        _target = target;
     }
 }
